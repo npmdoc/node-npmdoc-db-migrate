@@ -1,0 +1,2489 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/kunklejr/node-db-migrate#readme"
+
+    >db-migrate (v0.9.26)</a>
+</h1>
+<h4>Database migration framework for node.js</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.db-migrate">module db-migrate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.class">
+            function <span class="apidocSignatureSpan">db-migrate.</span>class
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.connect">
+            function <span class="apidocSignatureSpan">db-migrate.</span>connect
+            <span class="apidocSignatureSpan">(config, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.createMigration">
+            function <span class="apidocSignatureSpan">db-migrate.</span>createMigration
+            <span class="apidocSignatureSpan">(migration, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.driver">
+            function <span class="apidocSignatureSpan">db-migrate.</span>driver
+            <span class="apidocSignatureSpan">(config, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration">
+            function <span class="apidocSignatureSpan">db-migrate.</span>migration
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migrator">
+            function <span class="apidocSignatureSpan">db-migrate.</span>migrator
+            <span class="apidocSignatureSpan">(driver, migrationsDir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">db-migrate.</span>config</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">db-migrate.</span>dataType</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">db-migrate.</span>inflection</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">db-migrate.</span>migration.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">db-migrate.</span>migrator.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">db-migrate.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.db-migrate.class">module db-migrate.class</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.class.class">
+            function <span class="apidocSignatureSpan">db-migrate.</span>class
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.class.extend">
+            function <span class="apidocSignatureSpan">db-migrate.class.</span>extend
+            <span class="apidocSignatureSpan">(prop)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.db-migrate.config">module db-migrate.config</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.config.load">
+            function <span class="apidocSignatureSpan">db-migrate.config.</span>load
+            <span class="apidocSignatureSpan">(fileName, currentEnv)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.config.loadUrl">
+            function <span class="apidocSignatureSpan">db-migrate.config.</span>loadUrl
+            <span class="apidocSignatureSpan">(databaseUrl, currentEnv)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.config.setCurrent">
+            function <span class="apidocSignatureSpan">db-migrate.config.</span>setCurrent
+            <span class="apidocSignatureSpan">(env)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.db-migrate.inflection">module db-migrate.inflection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.camelize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>camelize
+            <span class="apidocSignatureSpan">(str, lowFirstLetter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.capitalize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>capitalize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.classify">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>classify
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.dasherize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>dasherize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.demodulize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>demodulize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.foreignKey">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>foreignKey
+            <span class="apidocSignatureSpan">(str, dropIdUbar)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.humanize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>humanize
+            <span class="apidocSignatureSpan">(str, lowFirstLetter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.indexOf">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>indexOf
+            <span class="apidocSignatureSpan">(array, item, fromIndex, compareFunc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.ordinalize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>ordinalize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.pluralize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>pluralize
+            <span class="apidocSignatureSpan">(str, plural)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.singularize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>singularize
+            <span class="apidocSignatureSpan">(str, singular)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.tableize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>tableize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.titleize">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>titleize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.inflection.underscore">
+            function <span class="apidocSignatureSpan">db-migrate.inflection.</span>underscore
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.db-migrate.migration">module db-migrate.migration</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.migration">
+            function <span class="apidocSignatureSpan">db-migrate.</span>migration
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.loadFromDatabase">
+            function <span class="apidocSignatureSpan">db-migrate.migration.</span>loadFromDatabase
+            <span class="apidocSignatureSpan">(dir, driver, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.loadFromFilesystem">
+            function <span class="apidocSignatureSpan">db-migrate.migration.</span>loadFromFilesystem
+            <span class="apidocSignatureSpan">(dir, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.parseName">
+            function <span class="apidocSignatureSpan">db-migrate.migration.</span>parseName
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">db-migrate.migration.</span>TemplateType</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.db-migrate.migration.prototype">module db-migrate.migration.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype._down">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>_down
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype._up">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>_up
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype.defaultCoffeeTemplate">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>defaultCoffeeTemplate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype.defaultJsTemplate">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>defaultJsTemplate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype.defaultSqlTemplate">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>defaultSqlTemplate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype.down">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>down
+            <span class="apidocSignatureSpan">(db, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype.getTemplate">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>getTemplate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype.sqlFileLoaderTemplate">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>sqlFileLoaderTemplate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype.up">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>up
+            <span class="apidocSignatureSpan">(db, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migration.prototype.write">
+            function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>write
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.db-migrate.migrator">module db-migrate.migrator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migrator.migrator">
+            function <span class="apidocSignatureSpan">db-migrate.</span>migrator
+            <span class="apidocSignatureSpan">(driver, migrationsDir)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.db-migrate.migrator.prototype">module db-migrate.migrator.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migrator.prototype.createMigrationTable">
+            function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>createMigrationTable
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migrator.prototype.deleteMigrationRecord">
+            function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>deleteMigrationRecord
+            <span class="apidocSignatureSpan">(migration, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migrator.prototype.down">
+            function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>down
+            <span class="apidocSignatureSpan">(funcOrOpts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migrator.prototype.downToBy">
+            function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>downToBy
+            <span class="apidocSignatureSpan">(count, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migrator.prototype.up">
+            function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>up
+            <span class="apidocSignatureSpan">(funcOrOpts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migrator.prototype.upToBy">
+            function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>upToBy
+            <span class="apidocSignatureSpan">(partialName, count, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.migrator.prototype.writeMigrationRecord">
+            function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>writeMigrationRecord
+            <span class="apidocSignatureSpan">(migration, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.db-migrate.util">module db-migrate.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.util.isArray">
+            function <span class="apidocSignatureSpan">db-migrate.util.</span>isArray
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.util.isFunction">
+            function <span class="apidocSignatureSpan">db-migrate.util.</span>isFunction
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.util.isString">
+            function <span class="apidocSignatureSpan">db-migrate.util.</span>isString
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.util.lpad">
+            function <span class="apidocSignatureSpan">db-migrate.util.</span>lpad
+            <span class="apidocSignatureSpan">(str, padChar, totalLength)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.util.shallowCopy">
+            function <span class="apidocSignatureSpan">db-migrate.util.</span>shallowCopy
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.db-migrate.util.toArray">
+            function <span class="apidocSignatureSpan">db-migrate.util.</span>toArray
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.db-migrate" id="apidoc.module.db-migrate">module db-migrate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.class" id="apidoc.element.db-migrate.class">
+        function <span class="apidocSignatureSpan">db-migrate.</span>class
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class = function (){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.connect" id="apidoc.element.db-migrate.connect">
+        function <span class="apidocSignatureSpan">db-migrate.</span>connect
+        <span class="apidocSignatureSpan">(config, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (config, callback) {
+  driver.connect(config, function(err, db) {
+    if (err) { callback(err); return; }
+
+    if(global.migrationMode)
+    {
+      var dirPath = path.resolve(config[&#x27;migrations-dir&#x27;] || &#x27;migrations&#x27;);
+
+      if(global.migrationMode !== &#x27;all&#x27;)
+      {
+        var switched = false,
+            newConf;
+
+        try {
+          newConf = require(path.resolve(config[&#x27;migrations-dir&#x27;] || &#x27;migrations&#x27;, global.migrationMode) + &#x27;/config.json&#x27;);
+          log.info(&#x27;loaded extra config for migration subfolder: &#x22;&#x27; + global.migrationMode + &#x27;/config.json&#x22;&#x27;);
+          switched = true;
+        } catch(e) {}
+
+        if(switched) {
+
+          db.switchDatabase(newConf, function()
+          {
+            global.locTitle = global.migrationMode;
+            callback(null, new Migrator(db, config[&#x27;migrations-dir&#x27;]));
+          });
+        }
+        else
+        {
+          global.locTitle = global.migrationMode;
+          callback(null, new Migrator(db, config[&#x27;migrations-dir&#x27;]));
+        }
+      }
+      else
+      {
+      recursive(dirPath, false, config[&#x27;migrations-dir&#x27;] || &#x27;migrations&#x27;)
+      .then(function(files) {
+          var oldClose = db.close;
+
+          files = files.filter(function (file) {
+            return file !== &#x27;migrations&#x27; &#x26;&#x26; fs.statSync(file).isDirectory();
+          });
+
+          files.push(&#x27;&#x27;);
+
+          db.close = function(cb) { migrationFiles(files, callback, config, db, oldClose, cb); };
+
+          db.close();
+        });
+      }
+    }
+    else
+      callback(null, new Migrator(db, config[&#x27;migrations-dir&#x27;]));
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var log = require(&#x27;./lib/log&#x27;);
+var Migrator = require(&#x27;./lib/migrator&#x27;);
+
+exports.dataType = require(&#x27;./lib/data_type&#x27;);
+exports.config = require(&#x27;./lib/config&#x27;);
+
+exports.connect = function(config, callback) {
+  driver.<span class="apidocCodeKeywordSpan">connect</span>(config, function(err, db) {
+    if (err) { callback(err); return; }
+
+    if(global.migrationMode)
+    {
+var dirPath = path.resolve(config[&#x27;migrations-dir&#x27;] || &#x27;migrations&#x27;);
+
+if(global.migrationMode !== &#x27;all&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.createMigration" id="apidoc.element.db-migrate.createMigration">
+        function <span class="apidocSignatureSpan">db-migrate.</span>createMigration
+        <span class="apidocSignatureSpan">(migration, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createMigration = function (migration, callback) {
+  migration.write(function(err) {
+  if (err) { callback(err); return; }
+  callback(null, migration);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.driver" id="apidoc.element.db-migrate.driver">
+        function <span class="apidocSignatureSpan">db-migrate.</span>driver
+        <span class="apidocSignatureSpan">(config, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">driver = function (config, callback) {
+
+  driver.connect(config, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration" id="apidoc.element.db-migrate.migration">
+        function <span class="apidocSignatureSpan">db-migrate.</span>migration
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">migration = function () {
+  if (arguments.length &#x3e;= 3) {
+    this.title = arguments[0];
+    this.date = arguments[2];
+    this.name = formatName(this.title, this.date);
+    this.path = formatPath(arguments[1], this.name);
+    this.templateType = arguments[3];
+  } else if (arguments.length == 1) {
+    this.path = arguments[0];
+    this.name = Migration.parseName(this.path);
+    this.date = parseDate(this.name);
+    this.title = parseTitle(this.name);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migrator" id="apidoc.element.db-migrate.migrator">
+        function <span class="apidocSignatureSpan">db-migrate.</span>migrator
+        <span class="apidocSignatureSpan">(driver, migrationsDir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">migrator = function (driver, migrationsDir) {
+  this.driver = driver;
+  this.migrationsDir = migrationsDir;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.db-migrate.class" id="apidoc.module.db-migrate.class">module db-migrate.class</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.class.class" id="apidoc.element.db-migrate.class.class">
+        function <span class="apidocSignatureSpan">db-migrate.</span>class
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class = function (){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.class.extend" id="apidoc.element.db-migrate.class.extend">
+        function <span class="apidocSignatureSpan">db-migrate.class.</span>extend
+        <span class="apidocSignatureSpan">(prop)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extend = function (prop) {
+  var _super = this.prototype;
+
+  // Instantiate a base class (but only create the instance,
+  // don&#x27;t run the init constructor)
+  initializing = true;
+  var prototype = new this();
+  initializing = false;
+
+  // Copy the properties over onto the new prototype
+  for (var name in prop) {
+    // Check if we&#x27;re overwriting an existing function
+    prototype[name] = typeof prop[name] == &#x22;function&#x22; &#x26;&#x26;
+      typeof _super[name] == &#x22;function&#x22; &#x26;&#x26; fnTest.test(prop[name]) ?
+      (function(name, fn){
+        return function() {
+          var tmp = this._super;
+
+          // Add a new ._super() method that is the same method
+          // but on the super-class
+          this._super = _super[name];
+
+          // The method only need to be bound temporarily, so we
+          // remove it when we&#x27;re done executing
+          var ret = fn.apply(this, arguments);
+          this._super = tmp;
+
+          return ret;
+        };
+      })(name, prop[name]) :
+      prop[name];
+  }
+
+  // The dummy class constructor
+  function Class() {
+    // All construction is actually done in the init method
+    if ( !initializing &#x26;&#x26; this.init )
+      this.init.apply(this, arguments);
+  }
+
+  // Populate our constructed prototype object
+  Class.prototype = prototype;
+
+  // Enforce the constructor to be what we expect
+  Class.prototype.constructor = Class;
+
+  // And make this class extendable
+  Class.extend = arguments.callee;
+
+  return Class;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.db-migrate.config" id="apidoc.module.db-migrate.config">module db-migrate.config</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.config.load" id="apidoc.element.db-migrate.config.load">
+        function <span class="apidocSignatureSpan">db-migrate.config.</span>load
+        <span class="apidocSignatureSpan">(fileName, currentEnv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">load = function (fileName, currentEnv) {
+  try {
+    fs.statSync(fileName);
+  } catch(e) {
+    throw new Error(&#x22;Could not find database config file &#x27;&#x22; + fileName + &#x22;&#x27;&#x22;);
+  }
+  var config;
+
+  try {
+    config = require(fileName);
+  } catch(e) {
+    // distinguish broken files from missing ones
+    if (e instanceof SyntaxError){
+      throw e;
+    }
+
+    config = require(path.join(process.cwd(), fileName));
+  }
+
+  for (var env in config) {
+    if (typeof(config[env]) == &#x22;string&#x22;) {
+      exports[env] = parseDatabaseUrl(config[env]);
+    } else {
+      //Check config entry&#x27;s for ENV objects
+      //which will tell us to grab configuration from the environment
+      for (var configEntry in config[env]) {
+        if (config[env][configEntry] &#x26;&#x26; config[env][configEntry].ENV != null){
+          config[env][configEntry] =  process.env[config[env][configEntry].ENV];
+        }
+      }
+      exports[env] = config[env];
+    }
+  }
+
+  if(currentEnv) {
+    setCurrent(currentEnv);
+  } else if(config[&#x27;default&#x27;]) {
+    setCurrent(config[&#x27;default&#x27;]);
+  } else if(config.env) {
+    setCurrent(config.env);
+  } else {
+    setCurrent([&#x27;dev&#x27;, &#x27;development&#x27;]);
+  }
+
+  delete exports.load;
+  delete exports.loadUrl;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.config.loadUrl" id="apidoc.element.db-migrate.config.loadUrl">
+        function <span class="apidocSignatureSpan">db-migrate.config.</span>loadUrl
+        <span class="apidocSignatureSpan">(databaseUrl, currentEnv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadUrl = function (databaseUrl, currentEnv) {
+  var config = parseDatabaseUrl(databaseUrl);
+  if (currentEnv) {
+    exports[currentEnv] = config;
+    setCurrent(currentEnv);
+  } else {
+    exports.urlConfig = config;
+    setCurrent(&#x27;urlConfig&#x27;);
+  }
+
+  delete exports.load;
+  delete exports.loadUrl;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.config.setCurrent" id="apidoc.element.db-migrate.config.setCurrent">
+        function <span class="apidocSignatureSpan">db-migrate.config.</span>setCurrent
+        <span class="apidocSignatureSpan">(env)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setCurrent = function (env) {
+  env = dbmUtil.isArray(env) ? env : [env];
+
+  env.forEach(function (current) {
+    if (dbmUtil.isString(current) &#x26;&#x26; exports[current]) {
+      exports.getCurrent = function () {
+        return {
+          env: current,
+          settings: exports[current]
+        };
+      };
+    }
+  });
+
+  if (!exports.getCurrent) {
+    throw new Error(&#x22;Environment(s) &#x27;&#x22; + env.join(&#x27;, &#x27;) + &#x22;&#x27; not found.&#x22;);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.db-migrate.inflection" id="apidoc.module.db-migrate.inflection">module db-migrate.inflection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.camelize" id="apidoc.element.db-migrate.inflection.camelize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>camelize
+        <span class="apidocSignatureSpan">(str, lowFirstLetter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">camelize = function (str, lowFirstLetter) {
+  str = str.toLowerCase();
+  var str_path = str.split(&#x27;/&#x27;);
+  for (var i = 0; i &#x3c; str_path.length; i++) {
+    var str_arr = str_path[i].split(&#x27;_&#x27;);
+    var initX = ((lowFirstLetter &#x26;&#x26; i + 1 === str_path.length) ? (1) : (0));
+    for (var x = initX; x &#x3c; str_arr.length; x++) {
+      str_arr[x] = str_arr[x].charAt(0).toUpperCase() + str_arr[x].substring(1);
+    }
+    str_path[i] = str_arr.join(&#x27;&#x27;);
+  }
+  str = str_path.join(&#x27;::&#x27;);
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    str - String - string to apply inflection on
+    lowFirstLetter - boolean (optional) - default is to capitalize the first
+      letter of the results... passing true will lowercase it
+  Returns:
+    String - lower case underscored words will be returned in camel case
+      additionally &#x27;/&#x27; is translated to &#x27;::&#x27;
+  Examples:
+    &#x22;message_properties&#x22;.<span class="apidocCodeKeywordSpan">camelize</span>() == &#x22;MessageProperties&#x22;
+    &#x22;message_properties&#x22;.camelize(true) == &#x22;messageProperties&#x22;
+*/
+exports.camelize = function(str, lowFirstLetter) {
+str = str.toLowerCase();
+var str_path = str.split(&#x27;/&#x27;);
+for (var i = 0; i &#x3c; str_path.length; i++) {
+  var str_arr = str_path[i].split(&#x27;_&#x27;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.capitalize" id="apidoc.element.db-migrate.inflection.capitalize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>capitalize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">capitalize = function (str) {
+  str = str.toLowerCase();
+  str = str.substring(0, 1).toUpperCase() + str.substring(1);
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x22;message_properties&#x22;.humanize(true) == &#x22;message properties&#x22;
+*/
+exports.humanize = function(str, lowFirstLetter) {
+str = str.toLowerCase();
+str = str.replace(idSuffix, &#x27;&#x27;);
+str = str.replace(dashOrUnderbar, &#x27; &#x27;);
+if (!lowFirstLetter) {
+  str = exports.<span class="apidocCodeKeywordSpan">capitalize</span>(str);
+}
+return str;
+};
+
+/*
+This function adds capitalization support to every String object
+  Signature:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.classify" id="apidoc.element.db-migrate.inflection.classify">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>classify
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">classify = function (str) {
+  str = exports.camelize(str);
+  str = exports.singularize(str);
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    Signature:
+      classify(str) == String
+    Arguments:
+      str - String - string to apply inflection on
+    Returns:
+      String - underscored plural nouns become the camel cased singular form
+    Examples:
+      &#x22;message_bus_properties&#x22;.<span class="apidocCodeKeywordSpan">classify</span>() == &#x22;MessageBusProperty&#x22;
+*/
+exports.classify = function(str) {
+  str = exports.camelize(str);
+  str = exports.singularize(str);
+  return str;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.dasherize" id="apidoc.element.db-migrate.inflection.dasherize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>dasherize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dasherize = function (str) {
+  str = str.replace(spaceOrUnderbar, &#x27;-&#x27;);
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  lpad(date.getUTCHours(), &#x27;0&#x27;, 2),
+  lpad(date.getUTCMinutes(), &#x27;0&#x27;, 2),
+  lpad(date.getUTCSeconds(), &#x27;0&#x27;, 2)
+].join(&#x27;&#x27;);
+}
+
+function formatTitle(title) {
+return inflection.<span class="apidocCodeKeywordSpan">dasherize</span>(title);
+}
+
+function parseDate(name) {
+var date = new Date();
+var match = name.match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})-[^\.]+/);
+date.setUTCFullYear(match[1]);
+date.setUTCDate(match[3]);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.demodulize" id="apidoc.element.db-migrate.inflection.demodulize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>demodulize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">demodulize = function (str) {
+  var str_arr = str.split(&#x27;::&#x27;);
+  str = str_arr[str_arr.length - 1];
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    Signature:
+      demodulize(str) == String
+    Arguments:
+      str - String - string to apply inflection on
+    Returns:
+      String - removes module names leaving only class names (Ruby style)
+    Examples:
+      &#x22;Message::Bus::Properties&#x22;.<span class="apidocCodeKeywordSpan">demodulize</span>() == &#x22;Properties&#x22;
+*/
+exports.demodulize = function(str) {
+  var str_arr = str.split(&#x27;::&#x27;);
+  str = str_arr[str_arr.length - 1];
+  return str;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.foreignKey" id="apidoc.element.db-migrate.inflection.foreignKey">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>foreignKey
+        <span class="apidocSignatureSpan">(str, dropIdUbar)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">foreignKey = function (str, dropIdUbar) {
+  str = exports.demodulize(str);
+  str = exports.underscore(str);
+  str = str + ((dropIdUbar) ? (&#x27;&#x27;) : (&#x27;_&#x27;)) + &#x27;id&#x27;;
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.humanize" id="apidoc.element.db-migrate.inflection.humanize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>humanize
+        <span class="apidocSignatureSpan">(str, lowFirstLetter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">humanize = function (str, lowFirstLetter) {
+  str = str.toLowerCase();
+  str = str.replace(idSuffix, &#x27;&#x27;);
+  str = str.replace(dashOrUnderbar, &#x27; &#x27;);
+  if (!lowFirstLetter) {
+    str = exports.capitalize(str);
+  }
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Arguments:
+    str - String - string to apply inflection on
+    lowFirstLetter - boolean (optional) - default is to capitalize the first
+      letter of the results... passing true will lowercase it
+  Returns:
+    String - lower case underscored words will be returned in humanized form
+  Examples:
+    &#x22;message_properties&#x22;.<span class="apidocCodeKeywordSpan">humanize</span>() == &#x22;Message properties&#x22;
+    &#x22;message_properties&#x22;.humanize(true) == &#x22;message properties&#x22;
+*/
+exports.humanize = function(str, lowFirstLetter) {
+str = str.toLowerCase();
+str = str.replace(idSuffix, &#x27;&#x27;);
+str = str.replace(dashOrUnderbar, &#x27; &#x27;);
+if (!lowFirstLetter) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.indexOf" id="apidoc.element.db-migrate.inflection.indexOf">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>indexOf
+        <span class="apidocSignatureSpan">(array, item, fromIndex, compareFunc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">indexOf = function (array, item, fromIndex, compareFunc) {
+  if (!fromIndex) {
+    fromIndex = -1;
+  }
+  var index = -1;
+  for (var i = fromIndex; i &#x3c; array.length; i++) {
+    if (array[i] === item || compareFunc &#x26;&#x26; compareFunc(array[i], item)) {
+      index = i;
+      break;
+    }
+  }
+  return index;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  log.info(&#x27;loaded extra config for migration subfolder: &#x22;&#x27; + file + &#x27;/config.json&#x22;&#x27;);
+  switched = true;
+} catch(e) {}
+  }
+
+  db.switchDatabase((switched) ? newConf : config.database, function()
+  {
+global.matching = file.substr(file.<span class="apidocCodeKeywordSpan">indexOf</span>(config[&#x27;migrations-dir&#x27;] || &#x27
+;migrations&#x27;) +
+    (config[&#x27;migrations-dir&#x27;] || &#x27;migrations&#x27;).length + 1);
+
+if(global.matching.length === 0)
+  global.matching = &#x27;&#x27;;
+
+
+global.locTitle = global.matching;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.ordinalize" id="apidoc.element.db-migrate.inflection.ordinalize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>ordinalize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ordinalize = function (str) {
+  var str_arr = str.split(&#x27; &#x27;);
+  for (var x = 0; x &#x3c; str_arr.length; x++) {
+    var i = parseInt(str_arr[x], 10);
+    if (isNan(i)) {
+      var ltd = str_arr[x].substring(str_arr[x].length - 2);
+      var ld = str_arr[x].substring(str_arr[x].length - 1);
+      var suf = &#x22;th&#x22;;
+      if (ltd != &#x22;11&#x22; &#x26;&#x26; ltd != &#x22;12&#x22; &#x26;&#x26; ltd != &#x22;13&#x22;) {
+        if (ld === &#x22;1&#x22;) {
+          suf = &#x22;st&#x22;;
+        } else if (ld === &#x22;2&#x22;) {
+          suf = &#x22;nd&#x22;;
+        } else if (ld === &#x22;3&#x22;) {
+          suf = &#x22;rd&#x22;;
+        }
+      }
+      str_arr[x] += suf;
+    }
+  }
+  str = str_arr.join(&#x27; &#x27;);
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Signature:
+    ordinalize(str) == String
+  Arguments:
+    str - String - string to apply inflection on
+  Returns:
+    String - renders all found numbers their sequence like &#x22;22nd&#x22;
+  Examples:
+    &#x22;the 1 pitch&#x22;.<span class="apidocCodeKeywordSpan">ordinalize</span>() == &#x22;the 1st pitch&#x22;
+*/
+exports.ordinalize = function(str) {
+var str_arr = str.split(&#x27; &#x27;);
+for (var x = 0; x &#x3c; str_arr.length; x++) {
+  var i = parseInt(str_arr[x], 10);
+  if (isNan(i)) {
+    var ltd = str_arr[x].substring(str_arr[x].length - 2);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.pluralize" id="apidoc.element.db-migrate.inflection.pluralize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>pluralize
+        <span class="apidocSignatureSpan">(str, plural)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pluralize = function (str, plural) {
+  return applyRules(str, pluralRules, uncountableWords, plural);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      pluralize(str, plural) == String
+    Arguments:
+      str - String - string to apply inflection on
+      plural - String (optional) - overrides normal output with said String
+    Returns:
+      String - singular English language nouns are returned in plural form
+    Examples:
+      &#x22;person&#x22;.<span class="apidocCodeKeywordSpan">pluralize</span>() == &#x22;people&#x22;
+      &#x22;octopus&#x22;.pluralize() == &#x22;octopi&#x22;
+      &#x22;Hat&#x22;.pluralize() == &#x22;Hats&#x22;
+      &#x22;person&#x22;.pluralize(&#x22;guys&#x22;) == &#x22;guys&#x22;
+*/
+exports.pluralize = function(str, plural) {
+  return applyRules(str, pluralRules, uncountableWords, plural);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.singularize" id="apidoc.element.db-migrate.inflection.singularize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>singularize
+        <span class="apidocSignatureSpan">(str, singular)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">singularize = function (str, singular) {
+  return applyRules(str, singularRules, uncountableWords, singular);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      singularize(str, singular) == String
+    Arguments:
+      str - String - string to apply inflection on
+      singular - String (optional) - overrides normal output with said String
+    Returns:
+      String - plural English language nouns are returned in singular form
+    Examples:
+      &#x22;people&#x22;.<span class="apidocCodeKeywordSpan">singularize</span>() == &#x22;person&#x22;
+      &#x22;octopi&#x22;.singularize() == &#x22;octopus&#x22;
+      &#x22;Hats&#x22;.singularize() == &#x22;Hat&#x22;
+      &#x22;guys&#x22;.singularize(&#x22;person&#x22;) == &#x22;person&#x22;
+*/
+exports.singularize = function(str, singular) {
+  return applyRules(str, singularRules, uncountableWords, singular);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.tableize" id="apidoc.element.db-migrate.inflection.tableize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>tableize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tableize = function (str) {
+  str = exports.underscore(str);
+  str = exports.pluralize(str);
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    Signature:
+      tableize(str) == String
+    Arguments:
+      str - String - string to apply inflection on
+    Returns:
+      String - renders camel cased words into their underscored plural form
+    Examples:
+      &#x22;MessageBusProperty&#x22;.<span class="apidocCodeKeywordSpan">tableize</span>() == &#x22;message_bus_properties&#x22;
+*/
+exports.tableize = function(str) {
+  str = exports.underscore(str);
+  str = exports.pluralize(str);
+  return str;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.titleize" id="apidoc.element.db-migrate.inflection.titleize">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>titleize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">titleize = function (str) {
+  str = str.toLowerCase();
+  str = str.replace(underbar, &#x27; &#x27;);
+  var str_arr = str.split(&#x27; &#x27;);
+  for (var x = 0; x &#x3c; str_arr.length; x++) {
+    var d = str_arr[x].split(&#x27;-&#x27;);
+    for (var i = 0; i &#x3c; d.length; i++) {
+      if (nonTitlecasedWords.indexOf(d[i].toLowerCase()) &#x3c; 0) {
+        d[i] = exports.capitalize(d[i]);
+      }
+    }
+    str_arr[x] = d.join(&#x27;-&#x27;);
+  }
+  str = str_arr.join(&#x27; &#x27;);
+  str = str.substring(0, 1).toUpperCase() + str.substring(1);
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Signature:
+    titleize(str) == String
+  Arguments:
+    str - String - string to apply inflection on
+  Returns:
+    String - capitalizes words as you would for a book title
+  Examples:
+    &#x22;message_properties&#x22;.<span class="apidocCodeKeywordSpan">titleize</span>() == &#x22;Message Properties&#x22;
+    &#x22;message properties to keep&#x22;.titleize() == &#x22;Message Properties to Keep&#x22;
+*/
+exports.titleize = function(str) {
+str = str.toLowerCase();
+str = str.replace(underbar, &#x27; &#x27;);
+var str_arr = str.split(&#x27; &#x27;);
+for (var x = 0; x &#x3c; str_arr.length; x++) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.inflection.underscore" id="apidoc.element.db-migrate.inflection.underscore">
+        function <span class="apidocSignatureSpan">db-migrate.inflection.</span>underscore
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">underscore = function (str) {
+  var str_path = str.split(&#x27;::&#x27;);
+  for (var i = 0; i &#x3c; str_path.length; i++) {
+    str_path[i] = str_path[i].replace(uppercase, &#x27;_$1&#x27;);
+    str_path[i] = str_path[i].replace(underbarPrefix, &#x27;&#x27;);
+  }
+  str = str_path.join(&#x27;/&#x27;).toLowerCase();
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  Arguments:
+    str - String - string to apply inflection on
+  Returns:
+    String - camel cased words are returned as lower cased and underscored
+      additionally &#x27;::&#x27; is translated to &#x27;/&#x27;
+  Examples:
+    &#x22;MessageProperties&#x22;.camelize() == &#x22;message_properties&#x22;
+    &#x22;messageProperties&#x22;.<span class="apidocCodeKeywordSpan">underscore</span>() == &#x22;message_properties&#x22;
+*/
+exports.underscore = function(str) {
+var str_path = str.split(&#x27;::&#x27;);
+for (var i = 0; i &#x3c; str_path.length; i++) {
+  str_path[i] = str_path[i].replace(uppercase, &#x27;_$1&#x27;);
+  str_path[i] = str_path[i].replace(underbarPrefix, &#x27;&#x27;);
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.db-migrate.migration" id="apidoc.module.db-migrate.migration">module db-migrate.migration</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.migration" id="apidoc.element.db-migrate.migration.migration">
+        function <span class="apidocSignatureSpan">db-migrate.</span>migration
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">migration = function () {
+  if (arguments.length &#x3e;= 3) {
+    this.title = arguments[0];
+    this.date = arguments[2];
+    this.name = formatName(this.title, this.date);
+    this.path = formatPath(arguments[1], this.name);
+    this.templateType = arguments[3];
+  } else if (arguments.length == 1) {
+    this.path = arguments[0];
+    this.name = Migration.parseName(this.path);
+    this.date = parseDate(this.name);
+    this.title = parseTitle(this.name);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.loadFromDatabase" id="apidoc.element.db-migrate.migration.loadFromDatabase">
+        function <span class="apidocSignatureSpan">db-migrate.migration.</span>loadFromDatabase
+        <span class="apidocSignatureSpan">(dir, driver, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFromDatabase = function (dir, driver, callback) {
+  log.verbose(&#x27;loading migrations from database&#x27;);
+  driver.allLoadedMigrations(function(err, dbResults) {
+    if (err &#x26;&#x26; !global.dryRun) { callback(err); return; }
+    else if (err &#x26;&#x26; global.dryRun) {
+      dbResults = []
+    }
+    var migrations = dbResults.filter(function(result) {
+      return result.name.substr(0,result.name.lastIndexOf(&#x27;/&#x27;)) === global.matching;
+    }).map(function(result) {
+      return new Migration(path.join(dir, result.name));
+    });
+
+    callback(null, migrations);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  },
+
+  upToBy: function(partialName, count, callback) {
+    var self = this;
+    Migration.loadFromFilesystem(self.migrationsDir, function(err, allMigrations) {
+      if (err) { callback(err); return; }
+
+      Migration.<span class="apidocCodeKeywordSpan">loadFromDatabase</span>(self.migrationsDir, self.driver, function(err, completedMigrations
+) {
+if (err) { callback(err); return; }
+var toRun = filterUp(allMigrations, completedMigrations, partialName, count);
+
+if (toRun.length === 0) {
+  log.info(&#x27;No migrations to run&#x27;);
+  callback(null);
+  return;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.loadFromFilesystem" id="apidoc.element.db-migrate.migration.loadFromFilesystem">
+        function <span class="apidocSignatureSpan">db-migrate.migration.</span>loadFromFilesystem
+        <span class="apidocSignatureSpan">(dir, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFromFilesystem = function (dir, callback) {
+  log.verbose(&#x27;loading migrations from dir&#x27;, dir);
+  fs.readdir(dir, function(err, files) {
+    if (err) { callback(err); return; }
+    var coffeeWarn = true;
+    files = files.filter(function(file) {
+      if (coffeeWarn &#x26;&#x26; !coffeeSupported &#x26;&#x26; /\.coffee$/.test(file)) {
+        log.warn(&#x27;CoffeeScript not installed&#x27;);
+        coffeeWarn = false;
+      }
+      return filesRegEx.test(file);
+    });
+    var migrations = files.sort().map(function(file) {
+      return new Migration(path.join(dir, file));
+    });
+    callback(null, migrations);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    } else {
+      this.downToBy(funcOrOpts.count, callback);
+    }
+  },
+
+  upToBy: function(partialName, count, callback) {
+    var self = this;
+    Migration.<span class="apidocCodeKeywordSpan">loadFromFilesystem</span>(self.migrationsDir, function(err, allMigrations) {
+      if (err) { callback(err); return; }
+
+      Migration.loadFromDatabase(self.migrationsDir, self.driver, function(err, completedMigrations) {
+if (err) { callback(err); return; }
+var toRun = filterUp(allMigrations, completedMigrations, partialName, count);
+
+if (toRun.length === 0) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.parseName" id="apidoc.element.db-migrate.migration.parseName">
+        function <span class="apidocSignatureSpan">db-migrate.migration.</span>parseName
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseName = function (path) {
+  var match = path.match(/(\d{14}-[^.]+)(?:\.*?)?/);
+  return match[1];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.title = arguments[0];
+  this.date = arguments[2];
+  this.name = formatName(this.title, this.date);
+  this.path = formatPath(arguments[1], this.name);
+  this.templateType = arguments[3];
+} else if (arguments.length == 1) {
+  this.path = arguments[0];
+  this.name = Migration.<span class="apidocCodeKeywordSpan">parseName</span>(this.path);
+  this.date = parseDate(this.name);
+  this.title = parseTitle(this.name);
+}
+};
+
+Migration.prototype.defaultCoffeeTemplate = function() {
+return [
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.db-migrate.migration.prototype" id="apidoc.module.db-migrate.migration.prototype">module db-migrate.migration.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype._down" id="apidoc.element.db-migrate.migration.prototype._down">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>_down
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_down = function () {
+  return require(this.path).down.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Migration.prototype.up = function(db, callback) {
+  this._up(db, callback);
+};
+
+Migration.prototype.down = function(db, callback) {
+  this.<span class="apidocCodeKeywordSpan">_down</span>(db, callback);
+};
+
+Migration.parseName = function(path) {
+  var match = path.match(/(\d{14}-[^.]+)(?:\.*?)?/);
+  return match[1];
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype._up" id="apidoc.element.db-migrate.migration.prototype._up">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>_up
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_up = function () {
+  return require(this.path).up.apply(this, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Migration.prototype.write = function(callback) {
+  fs.writeFile(this.path, this.getTemplate(), callback);
+};
+
+Migration.prototype.up = function(db, callback) {
+  this.<span class="apidocCodeKeywordSpan">_up</span>(db, callback);
+};
+
+Migration.prototype.down = function(db, callback) {
+  this._down(db, callback);
+};
+
+Migration.parseName = function(path) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype.defaultCoffeeTemplate" id="apidoc.element.db-migrate.migration.prototype.defaultCoffeeTemplate">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>defaultCoffeeTemplate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">defaultCoffeeTemplate = function () {
+  return [
+    &#x22;var dbm = -&#x3e; global.dbm or require &#x27;db-migrate&#x27;&#x22;,
+    &#x22;type   = dbm.dataType&#x22;,
+    &#x22;&#x22;,
+    &#x22;exports.up = (db, callback) -&#x3e;&#x22;,
+    &#x22;&#x22;,
+    &#x22;&#x22;,
+    &#x22;exports.down = (db, callback) -&#x3e;&#x22;,
+    &#x22;&#x22;,
+    &#x22;&#x22;,
+    &#x22;&#x22;
+  ].join(&#x22;\n&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Migration.prototype.getTemplate = function() {
+  switch (this.templateType) {
+    case Migration.TemplateType.DEFAULT_SQL:
+      return this.defaultSqlTemplate();
+    case Migration.TemplateType.SQL_FILE_LOADER:
+      return this.sqlFileLoaderTemplate();
+    case Migration.TemplateType.DEFAULT_COFFEE:
+      return this.<span class="apidocCodeKeywordSpan">defaultCoffeeTemplate</span>();
+    case Migration.TemplateType.DEFAULT_JS:
+    default:
+      return this.defaultJsTemplate();
+  }
+};
+
+Migration.prototype._up = function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype.defaultJsTemplate" id="apidoc.element.db-migrate.migration.prototype.defaultJsTemplate">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>defaultJsTemplate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">defaultJsTemplate = function () {
+  return [
+    &#x22;var dbm = global.dbm || require(&#x27;db-migrate&#x27;);&#x22;,
+    &#x22;var type = dbm.dataType;&#x22;,
+    &#x22;&#x22;,
+    &#x22;exports.up = function(db, callback) {&#x22;,
+    &#x22;  callback();&#x22;,
+    &#x22;};&#x22;,
+    &#x22;&#x22;,
+    &#x22;exports.down = function(db, callback) {&#x22;,
+    &#x22;  callback();&#x22;,
+    &#x22;};&#x22;,
+    &#x22;&#x22;
+  ].join(&#x22;\n&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      return this.defaultSqlTemplate();
+    case Migration.TemplateType.SQL_FILE_LOADER:
+      return this.sqlFileLoaderTemplate();
+    case Migration.TemplateType.DEFAULT_COFFEE:
+      return this.defaultCoffeeTemplate();
+    case Migration.TemplateType.DEFAULT_JS:
+    default:
+      return this.<span class="apidocCodeKeywordSpan">defaultJsTemplate</span>();
+  }
+};
+
+Migration.prototype._up = function() {
+  return require(this.path).up.apply(this, arguments);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype.defaultSqlTemplate" id="apidoc.element.db-migrate.migration.prototype.defaultSqlTemplate">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>defaultSqlTemplate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">defaultSqlTemplate = function () {
+  return &#x22;/* Replace with your SQL commands */&#x22;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+SQL_FILE_LOADER: 2,
+DEFAULT_COFFEE: 3
+};
+
+Migration.prototype.getTemplate = function() {
+switch (this.templateType) {
+  case Migration.TemplateType.DEFAULT_SQL:
+    return this.<span class="apidocCodeKeywordSpan">defaultSqlTemplate</span>();
+  case Migration.TemplateType.SQL_FILE_LOADER:
+    return this.sqlFileLoaderTemplate();
+  case Migration.TemplateType.DEFAULT_COFFEE:
+    return this.defaultCoffeeTemplate();
+  case Migration.TemplateType.DEFAULT_JS:
+  default:
+    return this.defaultJsTemplate();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype.down" id="apidoc.element.db-migrate.migration.prototype.down">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>down
+        <span class="apidocSignatureSpan">(db, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">down = function (db, callback) {
+  this._down(db, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        log.info(&#x27;No migrations to run&#x27;);
+        callback(null);
+        return;
+      }
+
+      async.forEachSeries(toRun, function(migration, next) {
+        log.verbose(&#x27;preparing to run down migration:&#x27;, migration.name);
+        self.<span class="apidocCodeKeywordSpan">down</span>(migration.down.bind(migration), function(err) {
+          if (err) { callback(err); return; }
+          self.deleteMigrationRecord(migration, next);
+        });
+      }, callback);
+    });
+  }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype.getTemplate" id="apidoc.element.db-migrate.migration.prototype.getTemplate">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>getTemplate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTemplate = function () {
+  switch (this.templateType) {
+    case Migration.TemplateType.DEFAULT_SQL:
+      return this.defaultSqlTemplate();
+    case Migration.TemplateType.SQL_FILE_LOADER:
+      return this.sqlFileLoaderTemplate();
+    case Migration.TemplateType.DEFAULT_COFFEE:
+      return this.defaultCoffeeTemplate();
+    case Migration.TemplateType.DEFAULT_JS:
+    default:
+      return this.defaultJsTemplate();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Migration.prototype._down = function() {
+  return require(this.path).down.apply(this, arguments);
+};
+
+Migration.prototype.write = function(callback) {
+  fs.writeFile(this.path, this.<span class="apidocCodeKeywordSpan">getTemplate</span>(), callback);
+};
+
+Migration.prototype.up = function(db, callback) {
+  this._up(db, callback);
+};
+
+Migration.prototype.down = function(db, callback) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype.sqlFileLoaderTemplate" id="apidoc.element.db-migrate.migration.prototype.sqlFileLoaderTemplate">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>sqlFileLoaderTemplate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sqlFileLoaderTemplate = function () {
+  return [
+    &#x22;var dbm = global.dbm || require(&#x27;db-migrate&#x27;);&#x22;,
+    &#x22;var type = dbm.dataType;&#x22;,
+    &#x22;var fs = require(&#x27;fs&#x27;);&#x22;,
+    &#x22;var path = require(&#x27;path&#x27;);&#x22;,
+    &#x22;&#x22;,
+    &#x22;exports.up = function(db, callback) {&#x22;,
+    &#x22;  var filePath = path.join(__dirname + &#x27;/sqls/&#x22;+this.name.replace(&#x27;.js&#x27;, &#x27;&#x27;)+&#x22;-up.sql&#x27;);&#x22;,
+    &#x22;  fs.readFile(filePath, {encoding: &#x27;utf-8&#x27;}, function(err,data){&#x22;,
+    &#x22;    if (err) return callback(err);&#x22;,
+    &#x22;      console.log(&#x27;received data: &#x27; + data);&#x22;,
+    &#x22;&#x22;,
+    &#x22;    db.runSql(data, function(err) {&#x22;,
+    &#x22;      if (err) return callback(err);&#x22;,
+    &#x22;      callback();&#x22;,
+    &#x22;    });&#x22;,
+    &#x22;  });&#x22;,
+    &#x22;};&#x22;,
+    &#x22;&#x22;,
+    &#x22;exports.down = function(db, callback) {&#x22;,
+    &#x22;  var filePath = path.join(__dirname + &#x27;/sqls/&#x22;+this.name.replace(&#x27;.js&#x27;, &#x27;&#x27;)+&#x22;-down.sql&#x27;);&#x22;,
+    &#x22;  fs.readFile(filePath, {encoding: &#x27;utf-8&#x27;}, function(err,data){&#x22;,
+    &#x22;    if (err) return callback(err);&#x22;,
+    &#x22;      console.log(&#x27;received data: &#x27; + data);&#x22;,
+    &#x22;&#x22;,
+    &#x22;    db.runSql(data, function(err) {&#x22;,
+    &#x22;      if (err) return callback(err);&#x22;,
+    &#x22;      callback();&#x22;,
+    &#x22;    });&#x22;,
+    &#x22;  });&#x22;,
+    &#x22;};&#x22;,
+    &#x22;&#x22;
+  ].join(&#x22;\n&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Migration.prototype.getTemplate = function() {
+  switch (this.templateType) {
+    case Migration.TemplateType.DEFAULT_SQL:
+      return this.defaultSqlTemplate();
+    case Migration.TemplateType.SQL_FILE_LOADER:
+      return this.<span class="apidocCodeKeywordSpan">sqlFileLoaderTemplate</span>();
+    case Migration.TemplateType.DEFAULT_COFFEE:
+      return this.defaultCoffeeTemplate();
+    case Migration.TemplateType.DEFAULT_JS:
+    default:
+      return this.defaultJsTemplate();
+  }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype.up" id="apidoc.element.db-migrate.migration.prototype.up">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>up
+        <span class="apidocSignatureSpan">(db, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">up = function (db, callback) {
+  this._up(db, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      callback(null);
+      return;
+    }
+
+    async.forEachSeries(toRun, function(migration, next) {
+      log.verbose(&#x27;preparing to run up migration:&#x27;, migration.name);
+      self.driver.startMigration(function() {
+        self.<span class="apidocCodeKeywordSpan">up</span>(migration.up.bind(migration), function(err) {
+          if (err) { callback(err); return; }
+          self.writeMigrationRecord(migration, function() { self.driver.endMigration(next); });
+        });
+      });
+    }, callback);
+  });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migration.prototype.write" id="apidoc.element.db-migrate.migration.prototype.write">
+        function <span class="apidocSignatureSpan">db-migrate.migration.prototype.</span>write
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">write = function (callback) {
+  fs.writeFile(this.path, this.getTemplate(), callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if(typeof(cb) === &#x27;function&#x27;)
+      cb();
+
+  });
+}
+
+exports.createMigration = function(migration, callback) {
+  migration.<span class="apidocCodeKeywordSpan">write</span>(function(err) {
+  if (err) { callback(err); return; }
+  callback(null, migration);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.db-migrate.migrator" id="apidoc.module.db-migrate.migrator">module db-migrate.migrator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migrator.migrator" id="apidoc.element.db-migrate.migrator.migrator">
+        function <span class="apidocSignatureSpan">db-migrate.</span>migrator
+        <span class="apidocSignatureSpan">(driver, migrationsDir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">migrator = function (driver, migrationsDir) {
+  this.driver = driver;
+  this.migrationsDir = migrationsDir;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.db-migrate.migrator.prototype" id="apidoc.module.db-migrate.migrator.prototype">module db-migrate.migrator.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migrator.prototype.createMigrationTable" id="apidoc.element.db-migrate.migrator.prototype.createMigrationTable">
+        function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>createMigrationTable
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createMigrationTable = function (callback) {
+  this.driver.createMigrationTable(callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Migrator = function(driver, migrationsDir) {
+this.driver = driver;
+this.migrationsDir = migrationsDir;
+};
+
+Migrator.prototype = {
+createMigrationTable: function(callback) {
+  this.driver.<span class="apidocCodeKeywordSpan">createMigrationTable</span>(callback);
+},
+
+writeMigrationRecord: function(migration, callback) {
+  function onComplete(err) {
+    if (err) {
+      log.error(migration.name, err);
+    } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migrator.prototype.deleteMigrationRecord" id="apidoc.element.db-migrate.migrator.prototype.deleteMigrationRecord">
+        function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>deleteMigrationRecord
+        <span class="apidocSignatureSpan">(migration, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deleteMigrationRecord = function (migration, callback) {
+  function onComplete(err) {
+    if (err) {
+      log.error(migration.name, err);
+    } else {
+      log.info(&#x27;Processed migration&#x27;, migration.name);
+    }
+    callback(err);
+  }
+  this.driver.deleteMigration(global.matching + &#x27;/&#x27; + migration.name, function(err) {
+
+    if(!global.matching) {
+
+      this.driver.deleteMigration(migration.name, onComplete);
+    }
+    else {
+
+      onComplete.apply(err);
+    }
+  }.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return;
+      }
+
+      async.forEachSeries(toRun, function(migration, next) {
+        log.verbose(&#x27;preparing to run down migration:&#x27;, migration.name);
+        self.down(migration.down.bind(migration), function(err) {
+          if (err) { callback(err); return; }
+          self.<span class="apidocCodeKeywordSpan">deleteMigrationRecord</span>(migration, next);
+        });
+      }, callback);
+    });
+  }
+};
+
+module.exports = Migrator;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migrator.prototype.down" id="apidoc.element.db-migrate.migrator.prototype.down">
+        function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>down
+        <span class="apidocSignatureSpan">(funcOrOpts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">down = function (funcOrOpts, callback) {
+  if (dbmUtil.isFunction(funcOrOpts)) {
+    funcOrOpts(this.driver, callback);
+  } else {
+    this.downToBy(funcOrOpts.count, callback);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        log.info(&#x27;No migrations to run&#x27;);
+        callback(null);
+        return;
+      }
+
+      async.forEachSeries(toRun, function(migration, next) {
+        log.verbose(&#x27;preparing to run down migration:&#x27;, migration.name);
+        self.<span class="apidocCodeKeywordSpan">down</span>(migration.down.bind(migration), function(err) {
+          if (err) { callback(err); return; }
+          self.deleteMigrationRecord(migration, next);
+        });
+      }, callback);
+    });
+  }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migrator.prototype.downToBy" id="apidoc.element.db-migrate.migrator.prototype.downToBy">
+        function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>downToBy
+        <span class="apidocSignatureSpan">(count, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">downToBy = function (count, callback) {
+  var self = this;
+  Migration.loadFromDatabase(self.migrationsDir, self.driver, function(err, completedMigrations) {
+    if (err) { return callback(err); }
+
+    var toRun = filterDown(completedMigrations, count);
+
+    if (toRun.length === 0) {
+      log.info(&#x27;No migrations to run&#x27;);
+      callback(null);
+      return;
+    }
+
+    async.forEachSeries(toRun, function(migration, next) {
+      log.verbose(&#x27;preparing to run down migration:&#x27;, migration.name);
+      self.down(migration.down.bind(migration), function(err) {
+        if (err) { callback(err); return; }
+        self.deleteMigrationRecord(migration, next);
+      });
+    }, callback);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+},
+
+down: function(funcOrOpts, callback) {
+  if (dbmUtil.isFunction(funcOrOpts)) {
+    funcOrOpts(this.driver, callback);
+  } else {
+    this.<span class="apidocCodeKeywordSpan">downToBy</span>(funcOrOpts.count, callback);
+  }
+},
+
+upToBy: function(partialName, count, callback) {
+  var self = this;
+  Migration.loadFromFilesystem(self.migrationsDir, function(err, allMigrations) {
+    if (err) { callback(err); return; }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migrator.prototype.up" id="apidoc.element.db-migrate.migrator.prototype.up">
+        function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>up
+        <span class="apidocSignatureSpan">(funcOrOpts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">up = function (funcOrOpts, callback) {
+  if (dbmUtil.isFunction(funcOrOpts)) {
+    funcOrOpts(this.driver, callback);
+  } else {
+    this.upToBy(funcOrOpts.destination, funcOrOpts.count, callback);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      callback(null);
+      return;
+    }
+
+    async.forEachSeries(toRun, function(migration, next) {
+      log.verbose(&#x27;preparing to run up migration:&#x27;, migration.name);
+      self.driver.startMigration(function() {
+        self.<span class="apidocCodeKeywordSpan">up</span>(migration.up.bind(migration), function(err) {
+          if (err) { callback(err); return; }
+          self.writeMigrationRecord(migration, function() { self.driver.endMigration(next); });
+        });
+      });
+    }, callback);
+  });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migrator.prototype.upToBy" id="apidoc.element.db-migrate.migrator.prototype.upToBy">
+        function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>upToBy
+        <span class="apidocSignatureSpan">(partialName, count, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">upToBy = function (partialName, count, callback) {
+  var self = this;
+  Migration.loadFromFilesystem(self.migrationsDir, function(err, allMigrations) {
+    if (err) { callback(err); return; }
+
+    Migration.loadFromDatabase(self.migrationsDir, self.driver, function(err, completedMigrations) {
+      if (err) { callback(err); return; }
+      var toRun = filterUp(allMigrations, completedMigrations, partialName, count);
+
+      if (toRun.length === 0) {
+        log.info(&#x27;No migrations to run&#x27;);
+        callback(null);
+        return;
+      }
+
+      async.forEachSeries(toRun, function(migration, next) {
+        log.verbose(&#x27;preparing to run up migration:&#x27;, migration.name);
+        self.driver.startMigration(function() {
+          self.up(migration.up.bind(migration), function(err) {
+            if (err) { callback(err); return; }
+            self.writeMigrationRecord(migration, function() { self.driver.endMigration(next); });
+          });
+        });
+      }, callback);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }.bind(this));
+},
+
+up: function(funcOrOpts, callback) {
+  if (dbmUtil.isFunction(funcOrOpts)) {
+    funcOrOpts(this.driver, callback);
+  } else {
+    this.<span class="apidocCodeKeywordSpan">upToBy</span>(funcOrOpts.destination, funcOrOpts.count, callback);
+  }
+},
+
+down: function(funcOrOpts, callback) {
+  if (dbmUtil.isFunction(funcOrOpts)) {
+    funcOrOpts(this.driver, callback);
+  } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.migrator.prototype.writeMigrationRecord" id="apidoc.element.db-migrate.migrator.prototype.writeMigrationRecord">
+        function <span class="apidocSignatureSpan">db-migrate.migrator.prototype.</span>writeMigrationRecord
+        <span class="apidocSignatureSpan">(migration, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeMigrationRecord = function (migration, callback) {
+  function onComplete(err) {
+    if (err) {
+      log.error(migration.name, err);
+    } else {
+      log.info(&#x27;Processed migration&#x27;, migration.name);
+    }
+    callback(err);
+  }
+  this.driver.addMigrationRecord(global.matching + &#x27;/&#x27; + migration.name, onComplete);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+
+      async.forEachSeries(toRun, function(migration, next) {
+        log.verbose(&#x27;preparing to run up migration:&#x27;, migration.name);
+        self.driver.startMigration(function() {
+          self.up(migration.up.bind(migration), function(err) {
+            if (err) { callback(err); return; }
+            self.<span class="apidocCodeKeywordSpan">writeMigrationRecord</span>(migration, function() { self.driver.endMigration
+(next); });
+          });
+        });
+      }, callback);
+    });
+  });
+},
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.db-migrate.util" id="apidoc.module.db-migrate.util">module db-migrate.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.util.isArray" id="apidoc.element.db-migrate.util.isArray">
+        function <span class="apidocSignatureSpan">db-migrate.util.</span>isArray
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isArray = function (obj) {
+  return Object.prototype.toString.call(obj) == &#x27;[object Array]&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.util.isFunction" id="apidoc.element.db-migrate.util.isFunction">
+        function <span class="apidocSignatureSpan">db-migrate.util.</span>isFunction
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isFunction = function (obj) {
+  return typeof(obj) == &#x27;function&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+      onComplete.apply(err);
+    }
+  }.bind(this));
+},
+
+up: function(funcOrOpts, callback) {
+  if (dbmUtil.<span class="apidocCodeKeywordSpan">isFunction</span>(funcOrOpts)) {
+    funcOrOpts(this.driver, callback);
+  } else {
+    this.upToBy(funcOrOpts.destination, funcOrOpts.count, callback);
+  }
+},
+
+down: function(funcOrOpts, callback) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.util.isString" id="apidoc.element.db-migrate.util.isString">
+        function <span class="apidocSignatureSpan">db-migrate.util.</span>isString
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isString = function (obj) {
+  return typeof(obj) == &#x27;string&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.util.lpad" id="apidoc.element.db-migrate.util.lpad">
+        function <span class="apidocSignatureSpan">db-migrate.util.</span>lpad
+        <span class="apidocSignatureSpan">(str, padChar, totalLength)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lpad = function (str, padChar, totalLength) {
+  str = str.toString();
+  var neededPadding = totalLength - str.length;
+  for (var i = 0; i &#x3c; neededPadding; i++) {
+    str = padChar + str;
+  }
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.util.shallowCopy" id="apidoc.element.db-migrate.util.shallowCopy">
+        function <span class="apidocSignatureSpan">db-migrate.util.</span>shallowCopy
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">shallowCopy = function (obj) {
+  var newObj = {};
+  for (var prop in obj) {
+    newObj[prop] = obj[prop];
+  }
+  return newObj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.db-migrate.util.toArray" id="apidoc.element.db-migrate.util.toArray">
+        function <span class="apidocSignatureSpan">db-migrate.util.</span>toArray
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toArray = function (obj) {
+  var arr = [];
+  for (var prop in obj) {
+    arr[prop] = obj[prop];
+  }
+  return arr;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
